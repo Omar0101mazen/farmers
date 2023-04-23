@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}">
+
+<section class="products">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="categories col-md-3 col-sm-12">
+                <div class="categories-title">
+                    <h2>التصنيفات</h2>
+                </div>
+                <ul>
+                    <a href="{% url 'products:products' %}">
+                        <li>الجميع</li>
+                    </a>
+                    {% for CAT_fi in CAT_filer %}
+                        <a href="/products/?Category={{CAT_fi.id}}">
+                            <li>{{CAT_fi.name}}</li>
+                        </a>
+                    {% endfor %}
+                </ul>
+                <label id="search_label" for="search">ابحث عن منتجات</label>
+                    <input type="text" id="search" class="search" placeholder="اسم المنتج">
+            </div>
+
+            <div class="products-area col-md-9 col-sm-12">
+                <div class="total-products">
+                    <span id="products_count"></span>
+
+                </div>
+                <!-- Product  -->
+                {% for all in pro %}
+
+                    <div class="product product-active">
+                        <img src="{{all.PROimg.url}}"
+                            alt="">
+                        <div class="info">
+                            <a href="{% url 'products:product_detail' all.id %}" class="product-name">{{all.product_name}}</a>
+                            
+                        </div>
+                        <div class="description">
+                            <p>{{all.description}}</p>
+                        </div>
+                        <div class="product-weight">
+                            <span>السعر:</span>
+                            <span>{{all.prices}}$</span>
+                        </div>
+                        
+                        <div class="add-to-cart">
+                            <a href="{% url 'cart:add_to_cart' all.id %}" class=btn>إضافة للسلة</a>
+
+                        </div>
+                    </div>
+                {% endfor %}
+               
+                <!-- Product  -->
+                
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'js/products.js' %}"></script>
+<script src="{% static 'js/header.js' %}"></script>
+{% endblock content %}
+
+<!-- <a href="{% url 'change_quantity' item.product.id %}?action=increas"></a> -->
+<!-- <a href="{% url 'change_quantity' item.product.id %}?action=decrease"></a> -->

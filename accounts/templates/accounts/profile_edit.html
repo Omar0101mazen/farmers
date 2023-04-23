@@ -1,0 +1,64 @@
+{% load static %}
+
+{% load bootstrap4 %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<style>
+    body{
+        background: url('https://img.freepik.com/free-photo/colorful-veggies-frame-with-copy-space_23-2148290738.jpg');
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+      }
+      form{
+        width: 500px;
+        height: 400px;
+        background: #ffffff6e;
+        padding: 20px;
+        border-radius: 4px;
+      }
+      form small{
+        display: none;
+      }
+      form label{
+        display: none;
+      }
+      form input , form button{
+        padding: 5px 15px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        margin: 10px 0;
+        width: 100%;
+      }
+      form button[type = 'submit']{
+        color: white;
+        background-color: var(--main-color);
+      }
+</style>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+
+                    <div class="apply_job_form white-bg">
+                        
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% bootstrap_form userform %}
+                            {% bootstrap_form profileform %}
+                            {% buttons %}
+                              <button class="boxed-btn3 w-100" type="submit">Save</button>
+                            {% endbuttons %}
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+

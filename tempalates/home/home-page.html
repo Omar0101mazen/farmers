@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home-page.css' %}">
+
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slider -->
+            <!-- Slide1 -->
+            <div class="swiper-slide"
+                style="background-image: url(https://media.istockphoto.com/id/1454687257/nl/foto/vegetable-at-a-farmers-market.jpg?s=612x612&w=0&k=20&c=P4fo8n9KUYkTRparJ_6VrmWG6545A2IOMyusGcjndBw=)">
+                <div class="slide-text">
+                    <h1> منتجات طازجة</h1>
+                    <p>تعرف على أفضل المنتجات المزروعة بعناية وتحت رعاية مزارعينا المتميزين، واحصل على تجربة فريدة من
+                        نوعها في تناول الطعام الطازج والصحي</p>
+                    <a href="{% url 'products:products' %}" class="btn">تسوق الآن</a>
+                </div>
+            </div>
+            <!-- END Slide1 -->
+            <!-- Slide2 -->
+            <div class="swiper-slide"
+                style="background-image: url(https://media.istockphoto.com/id/1391008166/nl/foto/market-stall-full-of-vegetables.jpg?s=612x612&w=0&k=20&c=PQPRFPVbnoPrB-T74P9JJZzTo8KfRB5WIHgbggd-hKE=)">
+                <div class="slide-text">
+                    <h1>أسعار منافسة وجودة عالية </h1>
+                    <p>
+                        تمتع بأفضل الأسعار المنافسة والجودة العالية في منتجاتنا الزراعية الطازجة، مع ضمان عدم استخدام أي
+                        مواد كيميائية ضارة في الزراعة والإنتاج.
+
+                    </p>
+                    <a href="{% url 'products:products' %}" class="btn">تسوق الآن</a>
+                </div>
+            </div>
+            <!-- END Slide2 -->
+            <!-- Slide3 -->
+            <div class="swiper-slide"
+                style="background-image: url(https://media.istockphoto.com/id/1210040242/nl/foto/verse-groentemarkt.jpg?s=612x612&w=0&k=20&c=9tBE5g149KZ8Bux9mCJHNjlTHcW6nsTdJoNgTe0Ex14=)">
+                <div class="slide-text">
+                    <h1>تجربة تسوق رائعة ومريحة</h1>
+                    <p>
+                        تسوق بكل سهولة وراحة في متجرنا الإلكتروني، مع واجهة بسيطة وسهلة الإستخدام، وتجربة مميزة لتسوقك
+                        الإلكتروني.</p>
+                    <a href="{% url 'products:products' %}" class="btn">تسوق الآن</a>
+                </div>
+            </div>
+            <!-- END Slide3 -->
+            <!-- Slide4 -->
+            <div class="swiper-slide"
+                style="background-image: url(https://media.istockphoto.com/id/1324655909/nl/foto/variety-of-fresh-organic-vegetables-and-fruits-in-the-garden.jpg?s=612x612&w=0&k=20&c=fTrSx-4IojOHnlEyWLitf8QfUii3xfPSysi2xl7dqz8=)">
+                <div class="slide-text">
+                    <h1>توصيل سريع وموثوق</h1>
+                    <p>نوصل طلباتك بأسرع وقت ممكن، مع توفير خيارات توصيل مختلفة وآمنة، لضمان رضا العملاء وتجربة تسوق
+                        مميزة</p>
+                    <a href="{% url 'products:products' %}" class="btn">تسوق الآن</a>
+                </div>
+            </div>
+            <!-- END Slide4 -->
+
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"><span></span></div>
+        <div class="swiper-button-next"><span></span></div>
+
+    </div>
+    <section class="section-content">
+        <div class="container">
+            <div class="row">
+                <div class="section-content-text col-md-6 col-sm-12">
+                    <h3>منتجات زراعية طازجة من أفضل المزارعين</h3>
+                    <p>
+                        نقدم لكم في متجرنا المنتجات الزراعية الطازجة والصحية، التي يزرعها ويزودنا بها أفضل المزارعين في
+                        المنطقة. يمكنك الاختيار من بين مجموعة متنوعة من الخضروات والفواكه والأعشاب، والحصول عليها مباشرة
+                        من المزارع إلى باب منزلك. اشترِ الآن واستمتع بطعم الطازج!
+                    </p>
+                </div>
+                <div class="section-content-image col-md-6 col-sm-12">
+                    <img src="https://media.istockphoto.com/id/1277316592/nl/foto/verse-groenten-op-straatmarkt.jpg?s=612x612&w=0&k=20&c=pmTQ72JmGYD34-DPrirP7OFYBVUxRCrxDryDYsZXk9w="
+                        alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-content2">
+        <div class="container">
+            <div class="row">
+                <div class="section-content2 col-md-6 col-sm-12">
+                    <img src="https://media.istockphoto.com/id/927507360/nl/foto/technologie-foto-s.jpg?s=612x612&w=0&k=20&c=yQZY4fOOavaMGBsBZ_pgDT1QX9qtxs1kHdzspCr1kpM="
+                        alt="">
+                </div>
+                <div class="section-content2 col-md-6 col-sm-12">
+                    <h3>تسوق بسهولة وأمان في متجرنا الإلكتروني</h3>
+                    <p>
+                        يمكنك الآن تسوق المنتجات الطازجة المزارعية من متجرنا الإلكتروني بكل سهولة وأمان. نحن نوفر لك
+                        تجربة تسوق رائعة، حيث يمكنك الاختيار من بين مجموعة واسعة من المنتجات، وإضافتها إلى سلة التسوق
+                        الخاصة بك بكل سهولة. نوفر أيضًا خيارات دفع متنوعة وآمنة، وتوصيل سريع وموثوق به. تسوق الآن وتمتع
+                        بالطازج في كل وجبة!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+    <script src="{% static 'js/home-page.js' %}"></script>
+{% endblock content %}
+

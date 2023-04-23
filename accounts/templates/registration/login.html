@@ -1,0 +1,81 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+<style>
+  body{
+    background: url('https://img.freepik.com/free-photo/colorful-veggies-frame-with-copy-space_23-2148290738.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+  }
+  form{
+    width: 500px;
+    height: 250px;
+    background: #ffffff6e;
+    padding: 20px;
+    border-radius: 4px;
+  }
+  form h1{
+    text-align: center;
+    color: var(--main-color);
+  }
+  form label{
+    display: none;
+  }
+  form input{
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    width: 100%;
+  }
+  form input[type = 'submit']{
+    color: white;
+    background-color: var(--main-color);
+  }
+  .login-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .login-buttons p a{
+    color: var(--main-color);
+    font-size: 1.6rem;
+  }
+</style>
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    <h1>Login</h1>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="login" class="boxed-btn3 w-100" >
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <div class="login-buttons">
+  <p><a href="{% url 'accounts:signup' %}" class="boxed-btn3 w-20">Sign up</a></p>    
+  </div>
+
+  
+
+{% endblock %}
+<!-- <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+<p><a href="{% url 'accounts:signup' %}" class="boxed-btn3 w-20">Sign up</a></p> -->

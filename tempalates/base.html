@@ -1,0 +1,97 @@
+{% load static %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر المزارعين</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-v4-grid-only@1.0.0/dist/bootstrap-grid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- Page Style -->
+</head>
+
+<body>
+
+    <!-- header  -->
+
+    <header class="header">
+
+        <div class="header-1">
+
+            <a href="{% url 'products:products' %}" class="logo"> <img
+                    src="https://www.pngitem.com/pimgs/m/178-1783030_online-shopping-logo-png-transparent-png.png"
+                    alt="Logo"><span class="first">متجر</span><span class="second">المزارعين</span> </a>
+
+            <div class="icons">
+                <a href="{% url 'cart:cart_view' %}" class="bi bi-basket"><span>{{cart|length}}</span></a>
+                <!-- <a href="" class="bi bi-basket">({{cart|length}})</a> -->
+                {% if user.is_active and user.is_staff %}
+                    <a href="{% url 'dash:dashboard' %}" id="login-btn" class="bi bi-person"></a>
+                {% elif user.is_active %}
+                    <a href="{% url 'accounts:profile_user' %}" id="login-btn" class="bi bi-person"></a>
+                {% else %}
+                    <a href="{% url 'login' %}" id="login-btn" class="bi bi-person"></a> 
+                {% endif %}       
+
+            </div>
+
+        </div>
+    </header>
+
+    <!-- header -->
+
+    {% block content %}
+
+    {% endblock content %}
+
+
+    <!-- footer -->
+    <footer class="footer">
+
+        <div class="box-container">
+
+            <div class="box" id="logo_box">
+                <img src="https://www.pngitem.com/pimgs/m/178-1783030_online-shopping-logo-png-transparent-png.png"
+                    alt="Logo">
+            </div>
+            <div class="box">
+                <h3>روابط الوصول السريع
+                </h3>
+                <a href="{% url 'home:home' %}"> <i class="bi bi-chevron-double-left"></i> الصفحة الرئيسية </a>
+                <a href="{% url 'products:products' %}"> <i class="bi bi-chevron-double-left"></i> صفحة المنتجات </a>
+                <a href="{% url 'cart:cart_view' %}"> <i class="bi bi-chevron-double-left"></i> السلة </a>
+                <a href="{% url 'contact:contact' %}"> <i class="bi bi-chevron-double-left"></i> تواصل معنا </a>
+            </div>
+
+            <div class="box">
+                <h3>التصنيفات</h3>
+                <a href="/products/"> <i class="bi bi-chevron-double-left"></i> الكل </a>
+                <a href="/products/?Category=2"> <i class="bi bi-chevron-double-left"></i> خضار </a>
+                <a href="/products/?Category=3"> <i class="bi bi-chevron-double-left"></i> فواكه </a>
+                <a href="/products/?Category=4"> <i class="bi bi-chevron-double-left"></i> أعشاب </a>
+
+            </div>
+
+            <div class="box">
+                <h3>معلومات التواصل </h3>
+                <a href="#"> <i class="fas fa-map-marker"></i> ٍالموقع الجغرافي 77845-48941 </a>
+                <a href="#"> <i class="fas fa-phone"></i> (+) 1234-456-789 </a>
+                <a href="#"> <i class="fas fa-fax"></i> (+) 1234-456-789 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> example@example.com</a>
+            </div>
+
+        </div>
+        <div class="credit"><span><span id="store">متجر</span>المزارعين</span> | جميع الحقوق محفوظة</div>
+
+    </footer>
+    <!-- footer -->
+
+
+
+</body>
+
+</html>

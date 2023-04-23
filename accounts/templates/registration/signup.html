@@ -1,0 +1,68 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+ <style>
+  body{
+    background: url('https://img.freepik.com/free-photo/colorful-veggies-frame-with-copy-space_23-2148290738.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+  }
+  form{
+    width: 500px;
+    height: 350px;
+    background: #ffffff6e;
+    padding: 20px;
+    border-radius: 4px;
+  }
+  form label{
+    display: none;
+  }
+  form input{
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    width: 100%;
+  }
+  label.form-check-label{
+    display: block;
+  }
+  .form-check{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .form-check input{
+    width: 50px;
+  }
+  small{
+    display: none;
+  }
+  form input[type = 'submit']{
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: var(--main-color);
+    transition: .5s;
+  }
+  form input[type = 'submit']:hover{
+    transform: scale(1.05);
+  }
+ </style>
+
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="Sign Up" class="boxed-btn3 w-100" >
+  </form>
+
+
+
+{% endblock %}
